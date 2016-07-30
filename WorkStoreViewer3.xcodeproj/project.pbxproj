@@ -18,6 +18,7 @@
 		7891A3501D4C81C5006E4E6E /* WorkHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7891A34F1D4C81C5006E4E6E /* WorkHistoryTableViewCell.swift */; };
 		7891A3521D4C8509006E4E6E /* WorkHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7891A3511D4C8509006E4E6E /* WorkHistory.swift */; };
 		7891A3541D4D2011006E4E6E /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7891A3531D4D2011006E4E6E /* Work.swift */; };
+		7891A3561D4D37DF006E4E6E /* WorkHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7891A3551D4D37DF006E4E6E /* WorkHistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +116,7 @@
 		7891A34F1D4C81C5006E4E6E /* WorkHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		7891A3511D4C8509006E4E6E /* WorkHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkHistory.swift; sourceTree = "<group>"; };
 		7891A3531D4D2011006E4E6E /* Work.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
+		7891A3551D4D37DF006E4E6E /* WorkHistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkHistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +163,7 @@
 				7891A2F61D4C23DA006E4E6E /* AppDelegate.swift */,
 				7891A2F81D4C23DA006E4E6E /* ProfileViewController.swift */,
 				7891A2FA1D4C23DA006E4E6E /* Main.storyboard */,
+				7891A3551D4D37DF006E4E6E /* WorkHistoryView.swift */,
 				7891A3531D4D2011006E4E6E /* Work.swift */,
 				7891A34F1D4C81C5006E4E6E /* WorkHistoryTableViewCell.swift */,
 				7891A3511D4C8509006E4E6E /* WorkHistory.swift */,
@@ -358,6 +361,7 @@
 			files = (
 				7891A3501D4C81C5006E4E6E /* WorkHistoryTableViewCell.swift in Sources */,
 				7891A3521D4C8509006E4E6E /* WorkHistory.swift in Sources */,
+				7891A3561D4D37DF006E4E6E /* WorkHistoryView.swift in Sources */,
 				7891A3541D4D2011006E4E6E /* Work.swift in Sources */,
 				7891A2F91D4C23DA006E4E6E /* ProfileViewController.swift in Sources */,
 				7891A2F71D4C23DA006E4E6E /* AppDelegate.swift in Sources */,

@@ -142,12 +142,114 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Places Worked" id="BEV-SN-DTD">
                         <barButtonItem key="backBarButtonItem" title="Profile" id="zwd-3Q-DUd"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="thl-9J-0J2"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="thl-9J-0J2">
+                            <connections>
+                                <segue destination="foh-wo-dyY" kind="show" id="8Xd-1n-uRs"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3LT-YI-DHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2799" y="427"/>
+        </scene>
+        <!--New Work-->
+        <scene sceneID="rCV-k1-SdW">
+            <objects>
+                <viewController id="9my-CN-pAv" customClass="WorkHistoryView" customModule="WorkStoreViewer3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GfH-z5-aVF"/>
+                        <viewControllerLayoutGuide type="bottom" id="AHL-uU-fmt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CJW-gs-Wt8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="274" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="aJe-xe-siM">
+                                <rect key="frame" x="20" y="72" width="560" height="274"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Company Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Qt-8h-Rwh">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Klq-Lb-ZZT">
+                                        <rect key="frame" x="0.0" y="42" width="560" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Position" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sq2-22-3VI">
+                                        <rect key="frame" x="0.0" y="84" width="560" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Start Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2aN-TA-APF">
+                                        <rect key="frame" x="0.0" y="126" width="560" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="End Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gzw-3U-mbw">
+                                        <rect key="frame" x="0.0" y="168" width="560" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bxn-Z0-vX3">
+                                        <rect key="frame" x="0.0" y="210" width="63" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mjF-2V-wfi">
+                                        <rect key="frame" x="0.0" y="243" width="51" height="31"/>
+                                    </switch>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="2aN-TA-APF" firstAttribute="leading" secondItem="aJe-xe-siM" secondAttribute="leading" id="PxD-uc-80s"/>
+                                    <constraint firstItem="5Qt-8h-Rwh" firstAttribute="leading" secondItem="aJe-xe-siM" secondAttribute="leading" id="QvQ-S1-Amh"/>
+                                    <constraint firstAttribute="trailing" secondItem="2aN-TA-APF" secondAttribute="trailing" id="Vdo-k7-rVc"/>
+                                    <constraint firstAttribute="trailing" secondItem="Klq-Lb-ZZT" secondAttribute="trailing" id="Y51-b9-GRY"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Qt-8h-Rwh" secondAttribute="trailing" id="jDK-fI-TQQ"/>
+                                    <constraint firstItem="Klq-Lb-ZZT" firstAttribute="leading" secondItem="aJe-xe-siM" secondAttribute="leading" id="mLR-mE-7j8"/>
+                                    <constraint firstItem="Sq2-22-3VI" firstAttribute="leading" secondItem="aJe-xe-siM" secondAttribute="leading" id="opm-2r-76u"/>
+                                    <constraint firstItem="gzw-3U-mbw" firstAttribute="leading" secondItem="aJe-xe-siM" secondAttribute="leading" id="uDM-eK-ftX"/>
+                                    <constraint firstAttribute="trailing" secondItem="gzw-3U-mbw" secondAttribute="trailing" id="vAd-Sj-3Zl"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sq2-22-3VI" secondAttribute="trailing" id="yNJ-JZ-a0e"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="aJe-xe-siM" secondAttribute="trailing" id="bjt-e7-hyu"/>
+                            <constraint firstItem="aJe-xe-siM" firstAttribute="leading" secondItem="CJW-gs-Wt8" secondAttribute="leadingMargin" id="ick-0f-Xl0"/>
+                            <constraint firstItem="aJe-xe-siM" firstAttribute="top" secondItem="GfH-z5-aVF" secondAttribute="bottom" constant="8" id="jRX-Ex-WhL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Work" id="Dyp-1b-3mZ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="AaP-aJ-odb">
+                            <connections>
+                                <action selector="cancel:" destination="9my-CN-pAv" id="4NL-JQ-Bho"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="dFk-Sj-z1Y">
+                            <connections>
+                                <segue destination="KdG-VQ-xDu" kind="unwind" unwindAction="unwindToWorkList:" id="oFJ-iU-nf5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="companyfield" destination="5Qt-8h-Rwh" id="u4b-aL-CES"/>
+                        <outlet property="currentField" destination="mjF-2V-wfi" id="znw-XP-4OD"/>
+                        <outlet property="endDateField" destination="gzw-3U-mbw" id="lnA-XH-fby"/>
+                        <outlet property="locationField" destination="Klq-Lb-ZZT" id="5Kl-TW-f7i"/>
+                        <outlet property="positionField" destination="Sq2-22-3VI" id="NgW-2k-CVF"/>
+                        <outlet property="saveButton" destination="dFk-Sj-z1Y" id="mcK-IG-lLd"/>
+                        <outlet property="startDateField" destination="2aN-TA-APF" id="M8z-qB-xpg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vD6-av-C3x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="KdG-VQ-xDu" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4349" y="427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NH4-Qv-qI7">
@@ -184,6 +286,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OeG-TG-t3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2018" y="853"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="A7A-v3-0OK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="foh-wo-dyY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kMj-Sd-5nS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9my-CN-pAv" kind="relationship" relationship="rootViewController" id="Z0H-EC-CaR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Io-LX-UAY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3537" y="427"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

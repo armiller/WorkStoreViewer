@@ -16,21 +16,8 @@ class WorkHistoryTable: UITableViewController, UINavigationControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Alamofire.request(.GET, "https://cs496-assignment-4.appspot.com/work/armiller")
-        	.validate()
-            .responseJSON { response in
-                if let items = response.result.value as? NSArray {
-                    for item in items {
-                        if let dic = item as? NSDictionary {
-                            self.works.append(Work(data: dic))
-                            dispatch_async(dispatch_get_main_queue(), {
-                                self.tableView.reloadData()
-                            })
-                        }
-                    }
-                }
-        }
-
+       
+		get_works()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -64,6 +51,38 @@ class WorkHistoryTable: UITableViewController, UINavigationControllerDelegate {
         cell.workLabel.text = work.Company
 
         return cell
+    }
+    
+    func get_works() {
+        var local_works = [Work]()
+        
+        Alamofire.request(.GET, "https://cs496-assignment-4.appspot.com/work/armiller")
+            .validate()
+            .responseJSON { response in
+                if let items = response.result.value as? NSArray {
+                    for item in items {
+                        if let dic = item as? NSDictionary {
+                            local_works.append(Work(data: dic))
+                        }
+                    }
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.works = local_works
+                        self.tableView.reloadData()
+                    })
+                }
+        }
+        
+        
+    }
+    
+    @IBAction func unwindToWorkList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.sourceViewController as? WorkHistoryView, work = sourceViewController.rawData {
+            Alamofire.request(.POST, "https://cs496-assignment-4.appspot.com/work/armiller",
+                              parameters: work as? [String : AnyObject], encoding: .JSON)
+                .response { response in
+                    self.get_works()
+            }
+        }
     }
 
 

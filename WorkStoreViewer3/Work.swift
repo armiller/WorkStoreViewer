@@ -22,9 +22,11 @@ class Work {
     var ManagerName: String?
     var ManagerEmail: String?
     var ManagerPhone: String?
+    var rawData: NSDictionary!
     
     
     init(data: NSDictionary) {
+        self.rawData = data
         self.parse(data)
     }
     
