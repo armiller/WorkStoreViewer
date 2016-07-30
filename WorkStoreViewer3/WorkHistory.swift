@@ -7,11 +7,29 @@
 //
 
 import UIKit
+import Alamofire
 
-class WorkHistoryTable: UITableViewController {
+class WorkHistoryTable: UITableViewController, UINavigationControllerDelegate {
 
+    var works = [Work]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        Alamofire.request(.GET, "https://cs496-assignment-4.appspot.com/work/armiller")
+        	.validate()
+            .responseJSON { response in
+                if let items = response.result.value as? NSArray {
+                    for item in items {
+                        if let dic = item as? NSDictionary {
+                            self.works.append(Work(data: dic))
+                            dispatch_async(dispatch_get_main_queue(), {
+                                self.tableView.reloadData()
+                            })
+                        }
+                    }
+                }
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -34,18 +52,20 @@ class WorkHistoryTable: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.works.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cellidentifier = "WorkHistoryViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellidentifier, forIndexPath: indexPath) as! WorkHistoryTableViewCell
 
+        let work = self.works[indexPath.row]
         // Configure the cell...
+        cell.workLabel.text = work.Company
 
         return cell
     }
-    */
+
 
     /*
     // Override to support conditional editing of the table view.

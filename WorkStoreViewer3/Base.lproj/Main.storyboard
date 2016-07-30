@@ -74,6 +74,13 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EfG-OV-nBV">
+                                <rect key="frame" x="20" y="332" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="htD-MW-ma1" kind="show" id="chV-Zd-RIg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -84,7 +91,7 @@
                     <navigationItem key="navigationItem" title="Profile" id="yv7-FU-eUI">
                         <barButtonItem key="rightBarButtonItem" title="WorkHistory" id="fyp-DG-Hlz">
                             <connections>
-                                <segue destination="htD-MW-ma1" kind="show" id="ja9-Ql-dUf"/>
+                                <segue destination="htD-MW-ma1" kind="show" id="u90-I3-rdD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -99,11 +106,11 @@
             </objects>
             <point key="canvasLocation" x="1282" y="427"/>
         </scene>
-        <!--Work History Table-->
+        <!--Places Worked-->
         <scene sceneID="wWf-7d-gvv">
             <objects>
                 <tableViewController id="htD-MW-ma1" customClass="WorkHistoryTable" customModule="WorkStoreViewer3" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Oaq-Ua-Ynw">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Oaq-Ua-Ynw">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -116,7 +123,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91e-sX-Tia">
-                                            <rect key="frame" x="8" y="11" width="42" height="21"/>
+                                            <rect key="frame" x="8" y="11" width="584" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -133,10 +140,14 @@
                             <outlet property="delegate" destination="htD-MW-ma1" id="2DY-1V-79i"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Places Worked" id="BEV-SN-DTD">
+                        <barButtonItem key="backBarButtonItem" title="Profile" id="zwd-3Q-DUd"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="thl-9J-0J2"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3LT-YI-DHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1987" y="427"/>
+            <point key="canvasLocation" x="2799" y="427"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NH4-Qv-qI7">
@@ -156,5 +167,26 @@
             </objects>
             <point key="canvasLocation" x="470" y="427"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fS3-Cn-Qhd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="47C-rZ-lLN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="r9Z-bw-kZB">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="htD-MW-ma1" kind="relationship" relationship="rootViewController" id="DtW-d6-v4I"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OeG-TG-t3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2018" y="853"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="u90-I3-rdD"/>
+    </inferredMetricsTieBreakers>
 </document>

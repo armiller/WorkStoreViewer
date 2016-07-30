@@ -17,6 +17,7 @@
 		7891A34B1D4C2656006E4E6E /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7891A33D1D4C25C8006E4E6E /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		7891A3501D4C81C5006E4E6E /* WorkHistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7891A34F1D4C81C5006E4E6E /* WorkHistoryTableViewCell.swift */; };
 		7891A3521D4C8509006E4E6E /* WorkHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7891A3511D4C8509006E4E6E /* WorkHistory.swift */; };
+		7891A3541D4D2011006E4E6E /* Work.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7891A3531D4D2011006E4E6E /* Work.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		7891A3311D4C25C8006E4E6E /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
 		7891A34F1D4C81C5006E4E6E /* WorkHistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkHistoryTableViewCell.swift; sourceTree = "<group>"; };
 		7891A3511D4C8509006E4E6E /* WorkHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkHistory.swift; sourceTree = "<group>"; };
+		7891A3531D4D2011006E4E6E /* Work.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Work.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +161,7 @@
 				7891A2F61D4C23DA006E4E6E /* AppDelegate.swift */,
 				7891A2F81D4C23DA006E4E6E /* ProfileViewController.swift */,
 				7891A2FA1D4C23DA006E4E6E /* Main.storyboard */,
+				7891A3531D4D2011006E4E6E /* Work.swift */,
 				7891A34F1D4C81C5006E4E6E /* WorkHistoryTableViewCell.swift */,
 				7891A3511D4C8509006E4E6E /* WorkHistory.swift */,
 				7891A2FD1D4C23DA006E4E6E /* Assets.xcassets */,
@@ -355,6 +358,7 @@
 			files = (
 				7891A3501D4C81C5006E4E6E /* WorkHistoryTableViewCell.swift in Sources */,
 				7891A3521D4C8509006E4E6E /* WorkHistory.swift in Sources */,
+				7891A3541D4D2011006E4E6E /* Work.swift in Sources */,
 				7891A2F91D4C23DA006E4E6E /* ProfileViewController.swift in Sources */,
 				7891A2F71D4C23DA006E4E6E /* AppDelegate.swift in Sources */,
 			);
