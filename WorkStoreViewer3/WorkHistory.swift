@@ -121,14 +121,25 @@ class WorkHistoryTable: UITableViewController, UINavigationControllerDelegate {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showDetail" {
+            let workDetailController = segue.destinationViewController as! WorkHistoryShowDetail
+            
+            if let selectedWorkCell = sender as? WorkHistoryTableViewCell {
+                let indexPath = self.tableView.indexPathForCell(selectedWorkCell)!
+                let selectedWork = works[indexPath.row]
+                workDetailController.work = selectedWork
+            }
+            
+        } else if segue.identifier == "AddItem" {
+            print("Adding new meal.")
+        }
     }
-    */
 
 }

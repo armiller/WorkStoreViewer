@@ -132,6 +132,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="workLabel" destination="91e-sX-Tia" id="rVM-Zt-DhZ"/>
+                                    <segue destination="UZ0-w6-dpG" kind="show" identifier="showDetail" id="AbR-zE-GJW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -141,7 +142,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Places Worked" id="BEV-SN-DTD">
-                        <barButtonItem key="backBarButtonItem" title="Profile" id="zwd-3Q-DUd"/>
+                        <barButtonItem key="backBarButtonItem" title="Places Worked" id="zwd-3Q-DUd"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="thl-9J-0J2">
                             <connections>
                                 <segue destination="foh-wo-dyY" kind="show" id="8Xd-1n-uRs"/>
@@ -152,6 +153,104 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3LT-YI-DHE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2799" y="427"/>
+        </scene>
+        <!--Work History Show Detail-->
+        <scene sceneID="5Jn-Hc-Rcc">
+            <objects>
+                <viewController id="UZ0-w6-dpG" customClass="WorkHistoryShowDetail" customModule="WorkStoreViewer3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nKW-pR-Z2i"/>
+                        <viewControllerLayoutGuide type="bottom" id="V5k-Ns-ntp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LkR-JY-om3">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Era-0O-jrR">
+                                <rect key="frame" x="20" y="72" width="560" height="300"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSr-eE-wTd">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPS-q2-wrD">
+                                        <rect key="frame" x="0.0" y="31" width="560" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Position" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgE-HK-RPp">
+                                        <rect key="frame" x="0.0" y="62" width="560" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9V-a1-sZL">
+                                        <rect key="frame" x="0.0" y="93" width="560" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StartDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOG-LU-DpO">
+                                        <rect key="frame" x="0.0" y="124" width="560" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zhM-zS-MJy">
+                                        <rect key="frame" x="0.0" y="155" width="560" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EndDate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0Z-ne-Jfk">
+                                        <rect key="frame" x="0.0" y="186" width="560" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbj-P2-xRu">
+                                        <rect key="frame" x="0.0" y="217" width="560" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K2d-g3-ttX">
+                                        <rect key="frame" x="0.0" y="248" width="560" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x3j-F6-uZ9">
+                                        <rect key="frame" x="0.0" y="279" width="560" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Era-0O-jrR" firstAttribute="top" secondItem="nKW-pR-Z2i" secondAttribute="bottom" constant="8" symbolic="YES" id="bM7-WI-iMz"/>
+                            <constraint firstItem="Era-0O-jrR" firstAttribute="trailing" secondItem="LkR-JY-om3" secondAttribute="trailingMargin" id="pZi-GN-sGq"/>
+                            <constraint firstItem="Era-0O-jrR" firstAttribute="leading" secondItem="LkR-JY-om3" secondAttribute="leadingMargin" id="q30-lB-AF7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="tu4-jl-Wz1"/>
+                    <connections>
+                        <outlet property="currentLabel" destination="x3j-F6-uZ9" id="aWP-6e-t9w"/>
+                        <outlet property="endDateLabel" destination="Jbj-P2-xRu" id="1wB-JH-4qg"/>
+                        <outlet property="locationLabel" destination="pPS-q2-wrD" id="Lz7-O8-4sm"/>
+                        <outlet property="positionLabel" destination="l9V-a1-sZL" id="ffb-m8-C0s"/>
+                        <outlet property="startDateLabel" destination="zhM-zS-MJy" id="0Yq-xT-CsD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pO3-Zj-DDo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4944" y="-308"/>
         </scene>
         <!--New Work-->
         <scene sceneID="rCV-k1-SdW">
@@ -280,7 +379,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="htD-MW-ma1" kind="relationship" relationship="rootViewController" id="DtW-d6-v4I"/>
+                        <segue destination="Hsg-1r-gP1" kind="relationship" relationship="rootViewController" id="mtC-Gc-4HB"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OeG-TG-t3q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -303,10 +402,30 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Io-LX-UAY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3537" y="427"/>
+            <point key="canvasLocation" x="3583" y="427"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ApA-KM-Tbb">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hsg-1r-gP1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Wxe-LZ-Wdv"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GXk-PI-oPf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UZ0-w6-dpG" kind="relationship" relationship="rootViewController" id="1bT-he-8wI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xH3-z1-GKI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4132" y="-308"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="u90-I3-rdD"/>
+        <segue reference="AbR-zE-GJW"/>
     </inferredMetricsTieBreakers>
 </document>
