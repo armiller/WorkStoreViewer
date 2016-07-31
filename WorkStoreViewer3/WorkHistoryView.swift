@@ -65,6 +65,7 @@ class WorkHistoryView: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func cancel(sender: UIBarButtonItem) {
+    	companyfield.resignFirstResponder()
         dismissViewControllerAnimated(true, completion: nil)
     }
 

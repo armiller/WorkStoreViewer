@@ -11,6 +11,8 @@ import Alamofire
 
 class ProfileViewController: UIViewController, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var profile: Profile?
+    
     // MARK: Properties
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -27,6 +29,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIImagePicke
         self.nameLabel.text = ""
         self.emailLabel.text = ""
         self.birthdayLabel.text = ""
+        self.profile = loadProfile()
+        if let profi = self.profile {
+            self.profileImage.image = profi.image
+        }
     	
         Alamofire.request(.GET, "https://cs496-assignment-4.appspot.com/user/armiller")
             .validate()
@@ -52,7 +58,21 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIImagePicke
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         profileImage.image = selectedImage
+        saveProfile(selectedImage)
         dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func saveProfile(image: UIImage) {
+        let p = Profile(photo: image)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(p!, toFile: Profile.ArchiveURL.path!)
+        
+        if !isSuccessfulSave {
+            print("Failed to save meals")
+        }
+    }
+    
+    func loadProfile() -> Profile? {
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Profile.ArchiveURL.path!) as? Profile
     }
     
     func setData() {
