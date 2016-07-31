@@ -53,7 +53,15 @@ class WorkHistoryView: UIViewController, UITextFieldDelegate {
     
     func checkValidWorkHistory() {
     	let nametext = companyfield.text ?? ""
-        saveButton.enabled = !nametext.isEmpty
+        let locationtext = locationField.text ?? ""
+        let positiontext = positionField.text ?? ""
+        let starttext = startDateField.text ?? ""
+        
+        if !nametext.isEmpty && !locationtext.isEmpty && !positiontext.isEmpty && !starttext.isEmpty {
+            saveButton.enabled = true
+        } else {
+            saveButton.enabled = false
+        }
     }
     
     @IBAction func cancel(sender: UIBarButtonItem) {
