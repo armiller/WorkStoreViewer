@@ -19,6 +19,9 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIImagePicke
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var birthdayLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var skillsLabel: UILabel!
+    @IBOutlet weak var interestsLabel: UILabel!
+    @IBOutlet weak var bioLabel: UILabel!
     
     var userdata: NSDictionary?
     
@@ -80,6 +83,23 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIImagePicke
         self.nameLabel.text = userdata!["Name"] as? String
         self.emailLabel.text = userdata!["Email"] as? String
         self.birthdayLabel.text = String(userdata!["Birthday"] as! Int)
+        var skills = [String]()
+        if let sk = userdata!["Skills"] as? NSArray {
+            for item in sk {
+                skills.append(item as! String)
+            }
+            self.skillsLabel.text = skills.joinWithSeparator(",")
+        }
+        var interests = [String]()
+        if let it = userdata!["Interests"] as? NSArray {
+            for item in it {
+            	interests.append(item as! String)
+            }
+            self.interestsLabel.text = interests.joinWithSeparator(",")
+        }
+        if let bio = userdata!["Bio"] as? String {
+            self.bioLabel.text = bio
+        }
     }
 
     @IBAction func selectImage(sender: UITapGestureRecognizer) {

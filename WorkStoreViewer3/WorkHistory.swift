@@ -65,9 +65,9 @@ class WorkHistoryTable: UITableViewController, UINavigationControllerDelegate {
                             local_works.append(Work(data: dic))
                         }
                     }
+                    self.works = local_works
                     dispatch_async(dispatch_get_main_queue(), {
-                        self.works = local_works
-                        self.tableView.reloadData()
+                    	self.tableView.reloadData()
                     })
                 }
         }

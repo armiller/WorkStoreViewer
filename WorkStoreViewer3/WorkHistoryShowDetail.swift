@@ -16,6 +16,7 @@ class WorkHistoryShowDetail: UIViewController {
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var endDateLabel: UILabel!
     @IBOutlet weak var currentLabel: UILabel!
+    @IBOutlet weak var endDateTitle: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,11 +26,18 @@ class WorkHistoryShowDetail: UIViewController {
             locationLabel.text = work.Location
             positionLabel.text = work.Position
             startDateLabel.text = work.StartDate
-            endDateLabel.text = work.EndDate
-            if work.Current != nil {
-                currentLabel.text = "Yes"
+            if work.EndDate!.isEmpty {
+                endDateLabel.hidden = true
+                endDateTitle.hidden = true
             } else {
-                currentLabel.text = "No"
+                endDateLabel.text = work.EndDate
+            }
+           	if let cu = work.Current {
+                if cu {
+                    currentLabel.text = "Yes"
+                } else {
+                    currentLabel.text = "No"
+                }
             }
         }
         // Do any additional setup after loading the view.
