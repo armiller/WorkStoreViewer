@@ -4,11 +4,13 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4A1C28FC0609867E44D1B96FB9FD09F041273A25" : 0,
     "A5D63C35F97EF403DDF5E6C0D7F75D7E1B7E733F" : 0,
     "67620B5EFA902936DF04070AF595B76AB0333747" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9C87DB1E-0CCE-468C-9A70-EB5969C40C0A",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4A1C28FC0609867E44D1B96FB9FD09F041273A25" : "",
     "A5D63C35F97EF403DDF5E6C0D7F75D7E1B7E733F" : "WorkStoreViewer3\/",
     "67620B5EFA902936DF04070AF595B76AB0333747" : "WorkStoreViewer3\/Alamofire\/"
   },
@@ -16,6 +18,11 @@
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "WorkStoreViewer3.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:osuosl-cookbooks\/code_generator.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4A1C28FC0609867E44D1B96FB9FD09F041273A25"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Alamofire\/Alamofire.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
