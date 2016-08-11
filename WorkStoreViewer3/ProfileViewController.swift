@@ -36,8 +36,10 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIImagePicke
         if let profi = self.profile {
             self.profileImage.image = profi.image
         }
+        
+        let headers = ["Password": "testing"]
     	
-        Alamofire.request(.GET, "https://cs496-assignment-4.appspot.com/user/armiller")
+        Alamofire.request(.GET, "https://cs496-assignment-4.appspot.com/user/armiller", headers: headers)
             .validate()
             .responseJSON { response in
                 if let userdata = response.result.value as? NSDictionary {

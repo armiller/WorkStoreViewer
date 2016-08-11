@@ -575,6 +575,7 @@
 				7891A3121D4C23DA006E4E6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7891A3131D4C23DA006E4E6E /* Build configuration list for PBXNativeTarget "WorkStoreViewer3Tests" */ = {
 			isa = XCConfigurationList;
@@ -583,6 +584,7 @@
 				7891A3151D4C23DA006E4E6E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

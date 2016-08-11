@@ -12,17 +12,14 @@ import Alamofire
 class WorkHistoryTable: UITableViewController, UINavigationControllerDelegate {
 
     var works = [Work]()
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
        
 		get_works()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +53,11 @@ class WorkHistoryTable: UITableViewController, UINavigationControllerDelegate {
     func get_works() {
         var local_works = [Work]()
         
-        Alamofire.request(.GET, "https://cs496-assignment-4.appspot.com/work/armiller")
+        let headers = ["Password": "testing"]
+        
+        Alamofire.request(.GET,
+                          "https://cs496-assignment-4.appspot.com/work/armiller",
+                          headers: headers)
             .validate()
             .responseJSON { response in
                 if let items = response.result.value as? NSArray {
@@ -76,11 +77,27 @@ class WorkHistoryTable: UITableViewController, UINavigationControllerDelegate {
     }
     
     @IBAction func unwindToWorkList(sender: UIStoryboardSegue) {
+        let headers = ["Password": "testing"]
+        
         if let sourceViewController = sender.sourceViewController as? WorkHistoryView, work = sourceViewController.rawData {
-            Alamofire.request(.POST, "https://cs496-assignment-4.appspot.com/work/armiller",
-                              parameters: work as? [String : AnyObject], encoding: .JSON)
-                .response { response in
-                    self.get_works()
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                Alamofire.request(.PUT,
+                                  "https://cs496-assignment-4.appspot.com/work/armiller/\(selectedIndexPath.row + 1)",
+                                  parameters: work as? [String: AnyObject],
+                                  headers: headers, encoding: .JSON)
+                    			  .validate()
+                    			  .responseJSON { response in
+                        			self.get_works()
+                                  }
+                // PUT data
+            } else {
+                Alamofire.request(.POST, "https://cs496-assignment-4.appspot.com/work/armiller",
+                                  parameters: work as? [String : AnyObject],
+                                  headers: headers,
+                                  encoding: .JSON)
+                                  .response { response in
+                                  	self.get_works()
+                                  }
             }
         }
     }
@@ -128,8 +145,8 @@ class WorkHistoryTable: UITableViewController, UINavigationControllerDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "showDetail" {
-            let workDetailController = segue.destinationViewController as! WorkHistoryShowDetail
+        if segue.identifier == "ShowDetail" {
+            let workDetailController = segue.destinationViewController as! WorkHistoryView
             
             if let selectedWorkCell = sender as? WorkHistoryTableViewCell {
                 let indexPath = self.tableView.indexPathForCell(selectedWorkCell)!

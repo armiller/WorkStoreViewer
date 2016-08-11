@@ -21,6 +21,8 @@ class WorkHistoryView: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var endDateField: UITextField!
     @IBOutlet weak var currentField: UISwitch!
 
+    @IBOutlet weak var deleteButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -29,6 +31,17 @@ class WorkHistoryView: UIViewController, UITextFieldDelegate {
         positionField.delegate = self
         startDateField.delegate = self
         endDateField.delegate = self
+        
+        if let w = work {
+            navigationItem.title = w.Company
+            companyfield.text = w.Company
+            locationField.text = w.Location
+            positionField.text = w.Position
+            startDateField.text = w.StartDate
+            endDateField.text = w.EndDate
+            self.deleteButton.hidden = false
+        }
+        
         // Do any additional setup after loading the view.
         checkValidWorkHistory()
     }
@@ -65,8 +78,15 @@ class WorkHistoryView: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func cancel(sender: UIBarButtonItem) {
-    	companyfield.resignFirstResponder()
-        dismissViewControllerAnimated(true, completion: nil)
+        
+        let isPresentingInAddWorkMode = presentingViewController is UINavigationController
+        if isPresentingInAddWorkMode {
+            companyfield.resignFirstResponder()
+            dismissViewControllerAnimated(true, completion: nil)
+        } else {
+            navigationController!.popViewControllerAnimated(true)
+        }
+
     }
 
     // MARK: - Navigation
