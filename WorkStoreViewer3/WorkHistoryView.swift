@@ -13,6 +13,7 @@ class WorkHistoryView: UIViewController, UITextFieldDelegate {
     
     var work: Work?
     var rawData: NSDictionary?
+    var delete = false
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var companyfield: UITextField!
     @IBOutlet weak var locationField: UITextField!
@@ -39,6 +40,7 @@ class WorkHistoryView: UIViewController, UITextFieldDelegate {
             positionField.text = w.Position
             startDateField.text = w.StartDate
             endDateField.text = w.EndDate
+            currentField.on = w.Current!
             self.deleteButton.hidden = false
         }
         
@@ -94,7 +96,7 @@ class WorkHistoryView: UIViewController, UITextFieldDelegate {
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if saveButton === sender {
-            let workdata:NSDictionary = [
+            let workdata: NSDictionary = [
                 "Company" : self.companyfield.text!,
                 "Location" : self.locationField.text!,
                 "Position" : self.positionField.text!,
@@ -103,6 +105,9 @@ class WorkHistoryView: UIViewController, UITextFieldDelegate {
                 "Current" : self.currentField.on
             ]
             self.rawData = workdata
+        }
+        if deleteButton === sender {
+            self.delete = true
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.

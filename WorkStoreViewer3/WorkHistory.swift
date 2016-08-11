@@ -52,7 +52,6 @@ class WorkHistoryTable: UITableViewController, UINavigationControllerDelegate {
     
     func get_works() {
         var local_works = [Work]()
-        
         let headers = ["Password": "testing"]
         
         Alamofire.request(.GET,
@@ -72,34 +71,53 @@ class WorkHistoryTable: UITableViewController, UINavigationControllerDelegate {
                     })
                 }
         }
-        
-        
     }
     
     @IBAction func unwindToWorkList(sender: UIStoryboardSegue) {
         let headers = ["Password": "testing"]
         
-        if let sourceViewController = sender.sourceViewController as? WorkHistoryView, work = sourceViewController.rawData {
-            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                Alamofire.request(.PUT,
-                                  "https://cs496-assignment-4.appspot.com/work/armiller/\(selectedIndexPath.row + 1)",
-                                  parameters: work as? [String: AnyObject],
-                                  headers: headers, encoding: .JSON)
-                    			  .validate()
-                    			  .responseJSON { response in
-                        			self.get_works()
-                                  }
-                // PUT data
-            } else {
-                Alamofire.request(.POST, "https://cs496-assignment-4.appspot.com/work/armiller",
-                                  parameters: work as? [String : AnyObject],
-                                  headers: headers,
-                                  encoding: .JSON)
-                                  .response { response in
-                                  	self.get_works()
-                                  }
+        if let sourceViewController = sender.sourceViewController as? WorkHistoryView {
+            // POST && PUT
+            if let data = sourceViewController.rawData {
+                if let work = sourceViewController.work {
+                    Alamofire.request(.PUT,
+                        "https://cs496-assignment-4.appspot.com/work/armiller/\(work.ID)",
+                        parameters: data as? [String: AnyObject],
+                        headers: headers, encoding: .JSON)
+                        .validate()
+                        .responseJSON { response in
+                            let response_string = NSString(data: response.data!, encoding: NSUTF8StringEncoding)
+                            print(response_string)
+                            self.get_works()
+                    }
+                } else {
+                    Alamofire.request(.POST, "https://cs496-assignment-4.appspot.com/work/armiller",
+                        parameters: data as? [String : AnyObject],
+                        headers: headers,
+                        encoding: .JSON)
+                        .responseJSON { response in
+                            let response_string = NSString(data: response.data!, encoding: NSUTF8StringEncoding)
+                            print(response_string)
+                            self.get_works()
+                    }
+                }
             }
-        }
+
+         
+            if sourceViewController.delete {
+                let id = sourceViewController.work!.ID
+                Alamofire.request(.DELETE,
+                    "https://cs496-assignment-4.appspot.com/work/armiller/\(id)",
+                    headers: headers,
+                    encoding: .JSON)
+                    .validate()
+                    .responseJSON { response in
+                        let response_string = NSString(data: response.data!, encoding: NSUTF8StringEncoding)
+                        print(response_string)
+                        self.get_works()
+                }
+            }
+    	}
     }
 
 
