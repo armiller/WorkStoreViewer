@@ -11,11 +11,18 @@ import Alamofire
 
 class WorkHistoryTable: UITableViewController, UINavigationControllerDelegate {
 
+    var user: String?
+    var password: String?
+    var headers: [String: String]?
     var works = [Work]()
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let p = self.password {
+            self.headers = ["Password": p]
+        }
        
 		get_works()
         // Uncomment the following line to preserve selection between presentations
@@ -52,11 +59,10 @@ class WorkHistoryTable: UITableViewController, UINavigationControllerDelegate {
     
     func get_works() {
         var local_works = [Work]()
-        let headers = ["Password": "testing"]
         
         Alamofire.request(.GET,
-                          "https://cs496-assignment-4.appspot.com/work/armiller",
-                          headers: headers)
+                          "https://cs496-assignment-4.appspot.com/work/\(self.user!)",
+                          headers: self.headers!)
             .validate()
             .responseJSON { response in
                 if let items = response.result.value as? NSArray {
@@ -74,16 +80,15 @@ class WorkHistoryTable: UITableViewController, UINavigationControllerDelegate {
     }
     
     @IBAction func unwindToWorkList(sender: UIStoryboardSegue) {
-        let headers = ["Password": "testing"]
         
         if let sourceViewController = sender.sourceViewController as? WorkHistoryView {
             // POST && PUT
             if let data = sourceViewController.rawData {
                 if let work = sourceViewController.work {
                     Alamofire.request(.PUT,
-                        "https://cs496-assignment-4.appspot.com/work/armiller/\(work.ID)",
+                        "https://cs496-assignment-4.appspot.com/work/\(self.user!)/\(work.ID)",
                         parameters: data as? [String: AnyObject],
-                        headers: headers, encoding: .JSON)
+                        headers: self.headers!, encoding: .JSON)
                         .validate()
                         .responseJSON { response in
                             let response_string = NSString(data: response.data!, encoding: NSUTF8StringEncoding)
@@ -91,9 +96,9 @@ class WorkHistoryTable: UITableViewController, UINavigationControllerDelegate {
                             self.get_works()
                     }
                 } else {
-                    Alamofire.request(.POST, "https://cs496-assignment-4.appspot.com/work/armiller",
+                    Alamofire.request(.POST, "https://cs496-assignment-4.appspot.com/work/\(self.user!)",
                         parameters: data as? [String : AnyObject],
-                        headers: headers,
+                        headers: self.headers!,
                         encoding: .JSON)
                         .responseJSON { response in
                             let response_string = NSString(data: response.data!, encoding: NSUTF8StringEncoding)
@@ -107,8 +112,8 @@ class WorkHistoryTable: UITableViewController, UINavigationControllerDelegate {
             if sourceViewController.delete {
                 let id = sourceViewController.work!.ID
                 Alamofire.request(.DELETE,
-                    "https://cs496-assignment-4.appspot.com/work/armiller/\(id)",
-                    headers: headers,
+                    "https://cs496-assignment-4.appspot.com/work/\(self.user!)/\(id)",
+                    headers: self.headers!,
                     encoding: .JSON)
                     .validate()
                     .responseJSON { response in

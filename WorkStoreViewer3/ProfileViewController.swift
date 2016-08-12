@@ -12,6 +12,8 @@ import Alamofire
 class ProfileViewController: UIViewController, UITableViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var profile: Profile?
+    var user: String?
+    var password: String?
     
     // MARK: Properties
     @IBOutlet weak var userNameLabel: UILabel!
@@ -34,21 +36,22 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIImagePicke
         self.birthdayLabel.text = ""
         self.profile = loadProfile()
         if let profi = self.profile {
-            self.profileImage.image = profi.image
+            if profi.image != nil {
+                self.profileImage.image = profi.image
+            }
+            let headers = ["Password": self.password!]
+            
+            Alamofire.request(.GET, "https://cs496-assignment-4.appspot.com/user/\(user!)", headers: headers)
+                .validate()
+                .responseJSON { response in
+                    if let userdata = response.result.value as? NSDictionary {
+                        self.userdata = userdata
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.setData()
+                        })
+                    }
+            }
         }
-        
-        let headers = ["Password": "testing"]
-    	
-        Alamofire.request(.GET, "https://cs496-assignment-4.appspot.com/user/armiller", headers: headers)
-            .validate()
-            .responseJSON { response in
-                if let userdata = response.result.value as? NSDictionary {
-                	self.userdata = userdata
-                    dispatch_async(dispatch_get_main_queue(), {
-                        self.setData()
-                    })
-                }
-        	}
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,7 +72,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIImagePicke
     
     func saveProfile(image: UIImage) {
         let p = Profile(photo: image)
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(p!, toFile: Profile.ArchiveURL.path!)
+        print(self.user!)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(p!, toFile: Profile.DocumentDirectory.URLByAppendingPathComponent(self.user!).path!)
         
         if !isSuccessfulSave {
             print("Failed to save meals")
@@ -77,7 +81,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIImagePicke
     }
     
     func loadProfile() -> Profile? {
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(Profile.ArchiveURL.path!) as? Profile
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Profile.DocumentDirectory.URLByAppendingPathComponent(self.user!).path!) as? Profile
     }
     
     func setData() {
@@ -110,5 +114,27 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIImagePicke
         imagePickerController.delegate = self
     	presentViewController(imagePickerController, animated: true, completion: nil)
     }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if sender === self.navigationItem.rightBarButtonItem {
+            let senderController = segue.destinationViewController as! WorkHistoryTable
+            senderController.user = self.user!
+            senderController.password = self.password!
+        }
+    }
+    
+//    @IBAction func unwindToProfile(sender: UIStoryboardSegue) {
+//        if let sourceViewController = sender.sourceViewController as? LoginViewController {
+//            let username = sourceViewController.usernameField.text!
+//            let password = sourceViewController.passwordField.text!
+//            self.user = username
+//            self.password = password
+//        }
+//    }
 }
 
