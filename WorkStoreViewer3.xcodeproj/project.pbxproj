@@ -22,6 +22,7 @@
 		7891A3581D4D79BA006E4E6E /* WorkHistoryShowDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7891A3571D4D79BA006E4E6E /* WorkHistoryShowDetail.swift */; };
 		7891A35A1D4E811C006E4E6E /* profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7891A3591D4E811C006E4E6E /* profile.swift */; };
 		789387FE1D5D1B6700D56338 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789387FD1D5D1B6700D56338 /* LoginViewController.swift */; };
+		789388071D5E405400D56338 /* ProfileCreationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789388061D5E405400D56338 /* ProfileCreationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		7891A3571D4D79BA006E4E6E /* WorkHistoryShowDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkHistoryShowDetail.swift; sourceTree = "<group>"; };
 		7891A3591D4E811C006E4E6E /* profile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = profile.swift; sourceTree = "<group>"; };
 		789387FD1D5D1B6700D56338 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		789388061D5E405400D56338 /* ProfileCreationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileCreationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 				7891A2F61D4C23DA006E4E6E /* AppDelegate.swift */,
 				7891A2F81D4C23DA006E4E6E /* ProfileViewController.swift */,
 				7891A2FA1D4C23DA006E4E6E /* Main.storyboard */,
+				789388061D5E405400D56338 /* ProfileCreationController.swift */,
 				789387FD1D5D1B6700D56338 /* LoginViewController.swift */,
 				7891A3591D4E811C006E4E6E /* profile.swift */,
 				7891A3571D4D79BA006E4E6E /* WorkHistoryShowDetail.swift */,
@@ -374,6 +377,7 @@
 				7891A3521D4C8509006E4E6E /* WorkHistory.swift in Sources */,
 				7891A3581D4D79BA006E4E6E /* WorkHistoryShowDetail.swift in Sources */,
 				7891A3561D4D37DF006E4E6E /* WorkHistoryView.swift in Sources */,
+				789388071D5E405400D56338 /* ProfileCreationController.swift in Sources */,
 				7891A3541D4D2011006E4E6E /* Work.swift in Sources */,
 				7891A2F91D4C23DA006E4E6E /* ProfileViewController.swift in Sources */,
 				7891A2F71D4C23DA006E4E6E /* AppDelegate.swift in Sources */,

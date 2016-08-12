@@ -82,6 +82,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func unwindToLogin(sender: UIStoryboardSegue) {
+        self.usernameField.text = ""
+        self.passwordField.text = ""
+        self.errorLabel.hidden = true
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

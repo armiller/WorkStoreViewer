@@ -143,6 +143,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="yv7-FU-eUI">
+                        <barButtonItem key="leftBarButtonItem" title="Sign Out" id="5X1-ZD-b2u">
+                            <connections>
+                                <action selector="signOut:" destination="BYZ-38-t0r" id="DMv-Mh-SwY"/>
+                                <segue destination="Fda-ce-knb" kind="unwind" unwindAction="unwindToLogin:" id="Zvf-aU-9Z6"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="WorkHistory" id="fyp-DG-Hlz">
                             <connections>
                                 <segue destination="htD-MW-ma1" kind="show" id="u90-I3-rdD"/>
@@ -161,6 +167,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="Fda-ce-knb" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="H4S-Ig-nFC">
                     <connections>
                         <action selector="selectImage:" destination="BYZ-38-t0r" id="W0U-PT-9js"/>
@@ -449,6 +456,24 @@
             </objects>
             <point key="canvasLocation" x="370" y="1351"/>
         </scene>
+        <!--Profile Creation Controller-->
+        <scene sceneID="zbP-M9-CW9">
+            <objects>
+                <viewController id="9cv-g1-xhj" customClass="ProfileCreationController" customModule="WorkStoreViewer3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QX7-zU-xpe"/>
+                        <viewControllerLayoutGuide type="bottom" id="awK-gb-Dsh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2vU-Nn-5jP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ose-xa-NTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2030" y="-345"/>
+        </scene>
         <!--WorkStore-->
         <scene sceneID="8cP-IN-dQ9">
             <objects>
@@ -599,6 +624,7 @@
         <!--Navigation Controller-->
         <scene sceneID="XI8-Ek-bpu">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wdZ-P8-IWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7eq-lt-60s" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CDX-uA-P3s">
@@ -610,7 +636,6 @@
                         <segue destination="5Mn-ru-EB5" kind="relationship" relationship="rootViewController" id="PeT-TN-nYp"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wdZ-P8-IWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="800" y="427"/>
         </scene>
@@ -619,7 +644,7 @@
         <image name="profileImage" width="480" height="321"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gn7-7Y-HVz"/>
+        <segue reference="J3Y-yT-W1s"/>
         <segue reference="dti-5T-oBA"/>
     </inferredMetricsTieBreakers>
 </document>
