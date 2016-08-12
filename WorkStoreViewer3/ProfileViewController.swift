@@ -35,22 +35,23 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIImagePicke
         self.emailLabel.text = ""
         self.birthdayLabel.text = ""
         self.profile = loadProfile()
-        if let profi = self.profile {
-            if profi.image != nil {
-                self.profileImage.image = profi.image
-            }
-            let headers = ["Password": self.password!]
-            
-            Alamofire.request(.GET, "https://cs496-assignment-4.appspot.com/user/\(user!)", headers: headers)
-                .validate()
-                .responseJSON { response in
-                    if let userdata = response.result.value as? NSDictionary {
-                        self.userdata = userdata
-                        dispatch_async(dispatch_get_main_queue(), {
-                            self.setData()
-                        })
-                    }
-            }
+        if let pro = self.profile {
+            self.profileImage.image = pro.image
+        }
+        let headers = ["Password": self.password!]
+        
+        Alamofire.request(.GET, "https://cs496-assignment-4.appspot.com/user/\(user!)", headers: headers)
+            .validate()
+            .responseJSON { response in
+                
+                
+                if let userdata = response.result.value as? NSDictionary {
+                    print(userdata)
+                    self.userdata = userdata
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.setData()
+                    })
+                }
         }
     }
 

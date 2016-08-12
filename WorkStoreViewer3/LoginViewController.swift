@@ -86,6 +86,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.usernameField.text = ""
         self.passwordField.text = ""
         self.errorLabel.hidden = true
+        self.loginButton.enabled = false
     }
     
     // MARK: - Navigation
