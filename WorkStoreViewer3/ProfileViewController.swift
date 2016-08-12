@@ -24,16 +24,28 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIImagePicke
     @IBOutlet weak var skillsLabel: UILabel!
     @IBOutlet weak var interestsLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
+    @IBOutlet weak var birthdayTitle: UILabel!
+    @IBOutlet weak var skillsTitle: UILabel!
+    @IBOutlet weak var InterestsTitle: UILabel!
+    @IBOutlet weak var bioTitle: UILabel!
     
     var userdata: NSDictionary?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.birthdayLabel.text = ""
+        self.birthdayLabel.hidden = true
         self.nameLabel.text = ""
         self.emailLabel.text = ""
-        self.birthdayLabel.text = ""
+        self.bioTitle.hidden = true
+        self.bioLabel.hidden = true
+        self.birthdayTitle.hidden = true
+        self.InterestsTitle.hidden = true
+        self.interestsLabel.hidden = true
+        self.skillsTitle.hidden = true
+        self.skillsLabel.hidden = true
+        
+        
         self.profile = loadProfile()
         if let pro = self.profile {
             self.profileImage.image = pro.image
@@ -89,13 +101,21 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIImagePicke
         self.userNameLabel.text = userdata!["Username"] as? String
         self.nameLabel.text = userdata!["Name"] as? String
         self.emailLabel.text = userdata!["Email"] as? String
-        self.birthdayLabel.text = String(userdata!["Birthday"] as! Int)
+        if let birthday = userdata!["Birthday"] as? Int {
+            if birthday != 0 {
+                self.birthdayLabel.text = String(birthday)
+                self.birthdayLabel.hidden = false
+                self.birthdayTitle.hidden = false
+            }
+        }
         var skills = [String]()
         if let sk = userdata!["Skills"] as? NSArray {
             for item in sk {
                 skills.append(item as! String)
             }
             self.skillsLabel.text = skills.joinWithSeparator(",")
+            self.skillsLabel.hidden = false
+            self.skillsTitle.hidden = false
         }
         var interests = [String]()
         if let it = userdata!["Interests"] as? NSArray {
@@ -103,9 +123,15 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UIImagePicke
             	interests.append(item as! String)
             }
             self.interestsLabel.text = interests.joinWithSeparator(",")
+            self.InterestsTitle.hidden = false
+            self.interestsLabel.hidden = false
         }
         if let bio = userdata!["Bio"] as? String {
-            self.bioLabel.text = bio
+            if !bio.isEmpty {
+                self.bioLabel.text = bio
+                self.bioTitle.hidden = false
+                self.bioLabel.hidden = false
+            }
         }
     }
 

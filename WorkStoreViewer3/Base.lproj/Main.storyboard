@@ -156,13 +156,17 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="InterestsTitle" destination="Oex-Vg-a9R" id="ws3-DX-O47"/>
                         <outlet property="bioLabel" destination="QhH-38-fTv" id="Edr-wD-Icr"/>
+                        <outlet property="bioTitle" destination="IM0-bu-ewz" id="XD1-2Y-ZqG"/>
                         <outlet property="birthdayLabel" destination="DKa-3L-rgX" id="uti-Pp-IDs"/>
+                        <outlet property="birthdayTitle" destination="vKy-Pq-R12" id="WoY-TR-eFO"/>
                         <outlet property="emailLabel" destination="CCU-37-NFo" id="N6l-AX-RGb"/>
                         <outlet property="interestsLabel" destination="8fY-Dw-szZ" id="blG-0f-Bhs"/>
                         <outlet property="nameLabel" destination="UEd-C9-oaZ" id="H1x-Wo-6ii"/>
                         <outlet property="profileImage" destination="9zi-9E-C59" id="xdV-IT-ExA"/>
                         <outlet property="skillsLabel" destination="zQU-f6-8gf" id="5KX-Vj-KJG"/>
+                        <outlet property="skillsTitle" destination="bri-Yb-Blr" id="Wls-wS-fvB"/>
                         <outlet property="userNameLabel" destination="Ndd-Il-XTu" id="w4K-l7-xQ6"/>
                     </connections>
                 </viewController>
@@ -508,7 +512,7 @@
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uc7-kA-nNb">
                                         <rect key="frame" x="0.0" y="174" width="560" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSX-tU-PA2">
                                         <rect key="frame" x="0.0" y="209" width="560" height="21"/>
